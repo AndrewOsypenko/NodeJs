@@ -2,7 +2,7 @@ import { Router } from 'express'
 import Task from '../models/task.js'
 const router = Router()
 
-router.post('/', (req, res, next) => {
+router.post('/tasks', (req, res, next) => {
     const todo = new Task(req.body)
     todo.save().then(() => {
         res.send(todo)
@@ -11,7 +11,7 @@ router.post('/', (req, res, next) => {
     })
 })
 
-router.get('/', (req, res, next) => {
+router.get('/tasks', (req, res, next) => {
     Task.find({}).then((users) => {
         res.send(users)
     }).catch((e) => {
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/tasks/:id', (req, res, next) => {
     Task.findById({_id: req.params.id}, (err, doc) => {
         if (err) {
             next(err)
@@ -28,7 +28,7 @@ router.get('/:id', (req, res, next) => {
     })
 })
 
-router.patch('/:id', (req, res, next) => {
+router.patch('/tasks/:id', (req, res, next) => {
     Task.findOneAndUpdate({_id: req.params.id}, req.body,(err, doc) => {
         if (err) {
             next(err)
@@ -37,7 +37,7 @@ router.patch('/:id', (req, res, next) => {
     })
 })
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/tasks/:id', async (req, res, next) => {
     try {
         const task = await Task.findOneAndDelete({_id: req.params.id})
         if (!task) {
