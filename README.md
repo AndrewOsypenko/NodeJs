@@ -2,10 +2,10 @@
 
 ## Project setup
 ```
-npm install
+yarn init
 ```
 
-### Compiles for development
+### Compiles for development!
 ```
-npm run dev
+yarn run dev
 ```
