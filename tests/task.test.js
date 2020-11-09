@@ -11,20 +11,22 @@ import {
 
 beforeEach(setUpDatabase);
 
-test('Should create task', async () => {
+test('Should create task', async (done) => {
     const response = await request(app)
         .post('/tasks')
         .send(taskOne)
         .expect(200);
     const task = await Task.findById(response.body._id);
     expect(task).not.toBeNull();
+    done();
 });
 
-test('Request get one task', async () => {
+test('Request get one task', async (done) => {
     const response = await request(app)
         .get(`/tasks/${taskTwo._id}`)
         .send()
         .expect(200);
+        done();
 });
 
 test('Request get all tasks', async (done) => {

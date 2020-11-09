@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "env-cmd -f ./config/test.env jest --config --runInBand --detectOpenHandles",
+    "test": "env-cmd -f ./config/test.env jest --config --runInBand --detectOpenHandles --forceExit",
+    "testGit": "jest --config --runInBand --detectOpenHandles --forceExit",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "lint": "eslint ."
   },
