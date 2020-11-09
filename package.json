@@ -1,0 +1,29 @@
+{
+  "name": "node-project",
+  "version": "1.0.0",
+  "description": "node crud project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "env-cmd -f ./config/test.env jest --config --runInBand --detectOpenHandles",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "lint": "eslint ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "jest": "^26.6.3",
+    "@jest/globals": "^26.6.2",
+    "jest-esm-transformer": "^1.0.0",
+    "nodemon": "^2.0.5",
+    "supertest": "^6.0.1",
+    "eslint": "^7.13.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
+  }
+}
